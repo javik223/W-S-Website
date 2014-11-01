@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Particle</title>
+
+	<style>
+		/* dimensions & placement of ParticleSlider container */
+		html, body {
+			width: 100%;
+			height: 100%;
+		}
+		.slideshows {
+		  width: 100%;
+		  height: 100%;
+		}
+		/* dimensions & placement of ParticleSlider */
+		.particle-slider {
+		  width: 100%%;
+		  height: 100%;
+		  float: left;
+		}
+		/* hide control & slide sources */
+		.particle-slider div {
+		  display: none;
+		}
+	</style>
+</head>
+<body>
+
+<div class="slideshows">
+  <div class="particle-slider" id="particle-slider-2">
+    <div class="slides">
+	    <div class="slide" data-src="/assets/img/wittsandstratts-logo.png"></div>
+	    <div class="slide" data-src="/assets/img/experience.png"></div>
+	    <div class="slide" data-src="/assets/img/love.png"></div>
+    </div>
+	  <canvas class="draw"></canvas>
+  </div>
+	  <canvas class="draw"></canvas>
+  </div>
+</div>
+
+<!-- Sample images:
+  img-gif-color.gif
+  img-gif-blue.gif
+  img-gif-red.gif
+  img-gif-next-triangle.gif
+  img-gif-prev-triangle.gif
+
+  img-png-color.png
+  img-png-next-triangle.png
+  img-png-prev-triangle.png
+
+  img-jpg-gradient.jpg
+
+  img-bmp-gradient.bmp
+-->
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/assets/js/particleslider.js"></script>
+
+<script>
+	$(document).ready(function(){
+		// Tamino Martinius - All rights reserved
+		// Copyright © 2013 Tamino Martinius (http://zaku.eu)
+
+		// Get ParticleSlider: http://particleslider.com/
+
+		var ps = new ParticleSlider({
+		    sliderId: 'particle-slider-2' //id of HTML-Element
+		  , slideDelay: 6.0 //delay between slides
+		});
+	});
+</script>
+</body>
+</html>
