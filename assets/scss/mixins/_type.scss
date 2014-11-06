@@ -54,7 +54,8 @@ h6 {
 }
 p {
 	font-size: rem-calc(16);
-	margin-bottom: rem-calc(16);
+	margin-bottom: rem-calc(24);
+	display: block;
 
 	@media #{$medium-up} {
 		font-size: rem-calc(18);
@@ -98,9 +99,21 @@ p {
 		font-size: rem-calc(86);
 	}
 }
+
+.xxxxxlarge {
+	font-size: rem-calc(66);
+
+	@media #{$medium-up} {
+		font-size: rem-calc(100);
+	}
+}
+
 strong {
 	font-weight: 400;
 }
 .centered {
 	text-align: center;
+}
+.color-light {
+	color: lighten($gray, 25%);
 }

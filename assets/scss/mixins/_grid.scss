@@ -30,7 +30,7 @@
 	float: left !important;
 }
 
-@for $i from 1 through 12 {
+@for $i from 0 through 12 {
 	.s-#{$i}-12 {
 		width: ( $i / 12 ) * 100%;
 		float: left;
@@ -40,7 +40,7 @@
 	}
 }
 @media #{$medium-up} {
-	@for $i from 1 through 12 {
+	@for $i from 0 through 12 {
 		.m-#{$i}-12 {
 			width: ( $i / 12 ) * 100%;
 			float: left;
@@ -51,7 +51,7 @@
 	}
 }
 @media #{$large-up} {
-	@for $i from 1 through 12 {
+	@for $i from 0 through 12 {
 		.l-#{$i}-12 {
 			width: ( $i / 12 ) * 100%;
 			float: left;
