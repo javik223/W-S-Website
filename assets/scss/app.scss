@@ -474,8 +474,16 @@ body {
 		padding-bottom: rem-calc(40);
 	}
 }
-.works {
+.works, .worksSingle {
 	@extend .about;
+}
+.worksSingle {
+	h3 {
+		font-weight: 200 !important;
+	}
+	p {
+		font-size: rem-calc(16);
+	}
 }
 .works_group {
 	padding-top: rem-calc(40);
@@ -494,10 +502,11 @@ body {
 	a {
 		font-weight: 400;
 		text-decoration: none;
-		padding: rem-calc(20) rem-calc(20) rem-calc(20) 0;
+		padding: rem-calc(20) rem-calc(0) rem-calc(20) 0;
 		color: lighten($gray, 20%);
 		@include inline-block;
 		position: relative;
+		margin-right: rem-calc(20);
 
 		&:after {
 			position: absolute;
@@ -661,5 +670,106 @@ body {
 			opacity: 1;
 			@include transform( translateY(0%) );
 		}
+	}
+}
+/* Style for the work single pages complete with art direction */
+p, div {
+	&.full-width {
+		@extend .m-12-12;
+	}
+	&.half-width {
+		@extend .m-6-12;
+	}
+	&.half-width-center {
+		@extend .half-width;
+		@extend .m-offset-3;
+	}
+	&.half-width-right {
+		@extend .half-width;
+		@extend .m-offset-6;
+	}
+	&.three-quarter-width {
+		@extend .m-4-12;
+	}
+	&.three-quarter-width-center {
+		@extend .three-quarter-width;
+		@extend .m-offset-4;
+	}
+	&.three-quarter-width-right {
+		@extend .three-quarter-width;
+		@extend .m-offset-8;
+	}
+	&.full-width, &.half-width, &.three-quarter-width {
+		clear: both;
+	}
+}
+.work_synopsis {
+	text-align: center;
+	margin-bottom: rem-calc(60);
+
+
+	.work_categories {
+		padding-top: rem-calc(20);
+		margin-top: rem-calc(20);
+		margin-bottom: rem-calc(40);
+		font-size: rem-calc(11);
+		font-weight: 400;
+		color: lighten($gray, 20%);
+		text-transform: uppercase;
+		word-spacing: rem-calc(3);
+		letter-spacing: rem-calc(1);
+		position: relative;
+
+		&:before {
+			position: absolute;
+			top: rem-calc(0);
+			left: 50%;
+			@include transform( translateX(-50%) );
+			content: '';
+			width: 10%;
+			height: rem-calc(1);
+			background-color: lighten($gray, 30%);
+		}
+	}
+}
+
+div {
+	&.full-width {
+		@extend .container;
+		//background-color: $gray;
+		//min-height: 600px;
+		margin-bottom: rem-calc(40);
+	}
+	&.three-columns {
+		> div {
+			@media #{$medium-up} {
+				width: 32%;
+				margin-right: 2%;
+				float: left;
+			}
+
+			&:last-child {
+				float: right;
+				margin-right: 0;
+			}
+			padding-right: rem-calc(26);
+			background-color: $gray;
+			height: 300px;
+			margin-bottom: rem-calc(40);
+		}
+	}
+	.two-columns {
+		@extend .three-columns;
+
+		> div {
+			@media #{$medium-up} {
+				width: 49% !important;
+			}
+		}
+	}
+	.one-column {
+		width: 100%;
+		float: left;
+		margin-bottom: rem-calc(40);
 	}
 }
