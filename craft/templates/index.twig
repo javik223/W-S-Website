@@ -1,0 +1,74 @@
+{% extends '_layout' %}
+{% block content %}
+	 <div class="homeHero jshomeHero">
+         <div class="content">
+             <div class="slideshows">
+              <div class="particle-slider" id="particle-slider-2">
+                <div class="slides">
+                    <div class="slide" data-src="/assets/img/experience.png"></div>
+                    <div class="slide" data-src="/assets/img/love.png"></div>
+                </div>
+                  <canvas class="draw"></canvas>
+              </div>
+        </div>
+
+             <h2 class="intro sigma">Witts &amp; Stratts is a creative agency with a compulsion for creating amazing experiences - for digital, print &amp; physical mediums</h2>
+         </div>
+    </div>
+    <!--Featured section-->
+    <div class="featured jsFeatured">
+        <!--Control navigation for featured items-->
+        <div class="featured_header jsFeaturedHeader">
+           <div class="row">
+                <h1>Featured Projects</h1>
+
+                <div class="icon-group">
+                    <span class="icon-arrow-left"></span><span class="icon-arrow-right"></span>
+                </div>
+
+                <div class="featured_viewall">View all Projects</div>
+           </div>
+        </div>
+
+        <div class="featured_projects">
+            <!--Invididual featured item-->
+            <div class="featured_item" data-bg="/assets/img/Omenka-Magazine.jpg">
+                <div class="row">
+                   <div class="col l-5-12 end">
+                        <h1 class="heading">Omenka Magazine</h1>
+
+                        <h3>A print &amp; digital app for Omenka Art and Lifestyle magazine</h3>
+
+                        <a class="more" href="View this item">
+                            +
+                        </a>
+                   </div>
+                </div>
+            </div>
+            <!--Featured items ends-->
+        </div>
+    </div>
+    <!--Featured section ends-->
+
+    <div class="row">
+        <div class="intro-text col m-6-12 m-offset-3 end">
+            <p>
+                We make informed designs, build meaningful products, services and experiences, giving life to ideas with enduring impact on brands and businesses.
+            </p>
+        </div>
+    </div>
+
+    <div class="container feature-extra">
+        <div class="col m-4-12">
+            <img src="/assets/img/sample-ugie.jpg" alt="Ugie Carnival">
+        </div>
+
+        <div class="col m-4-12">
+            <img src="/assets/img/sample-eko.jpg" alt="Sample Eko">
+        </div>
+
+        <div class="col m-4-12">
+            <img src="/assets/img/sample-mi.jpg" alt="Sample MI">
+        </div>
+    </div>
+{% endblock %}

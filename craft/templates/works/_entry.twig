@@ -1,0 +1,120 @@
+{% extends '_layout' %}
+{% block content %}
+<div class="container worksSingle">
+    <div class="container mt-pad">
+        <div class="row work_synopsis">
+            <a href="/works"><strong class="small">WORK</strong></a>
+
+            <h1 class="beta">{{ entry.title }}</h1>
+
+            <div class="work_categories">
+               {% set worksCategories = entry.worksCategories %}
+				
+	            {% for workCategory in worksCategories %}
+	            	{{ workCategory }}{% if loop.length != loop.last %}, {% endif %}
+	            {% endfor %}
+            </div>
+
+            <div class="half-width-center">{{ entry.synopsis }}</div>
+        </div>
+    </div>
+
+    <div class="full-width">
+    	{% for block in entry.works %}
+			{% switch block.type %}
+				{% case 'headerBeta' %}
+					<div class="row mt-pad">
+
+
+
+
+							<h2 class="beta {% if block.position == 'center' %} centered{% endif %}">{{ block.headerBeta }}</h2>
+					</div>
+				{% case 'headerGamma' %}
+						<div class="row mt-pad">
+							<h2 class="gamma {% if block.position == 'center' %} centered{% endif %}">{{ block.headerGamma }}</h2>
+						</div>
+				{% case 'headerOmega' %}
+					<div class="row mt-pad">
+							<h2 class="omega {% if block.position == 'center' %} centered{% endif %}">{{ block.headerOmega }}</h2>
+						</div>
+				{% case 'imgFullWidth' %}
+					<div class="full-width">
+						{% for image in block.imgFullWidth %}
+						        <img src="{{ image.getUrl() }}" alt="{{ image.title }}">
+						 {% endfor %}
+					</div>
+				{% case 'imgOneColumn' %}
+						<div class="row">
+							<div class="one-column">
+								{% for image in block.imgOneColumn %}
+							        <img src="{{ image.getUrl() }}" alt="{{ image.title }}">
+								{% endfor %}
+							</div>
+						</div>
+				{% case 'imgTwoColumns' %}
+						<div class="row">
+							<div class="two-columns">
+								{% for image in block.imgTwoColumns %}
+									<div><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></div>
+								{% endfor %}
+							</div>
+						</div>
+				{% case 'imgThreeColumns' %}
+						<div class="row">
+							<div class="three-columns">
+								{% for image in block.imgThreeColumns %}
+									<div><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></div>
+								{% endfor %}
+							</div>
+						</div>
+				{% case 'fullWidth' %}
+					<div class="row mt-pad">
+						<div class="full-width">
+							{{ block.fullWidth }}
+						</div>
+					</div>
+				{% case 'halfWidth' %}
+					<div class="row mt-pad">
+						<div class="{% if block.position == 'center' %} half-width-center {% elseif block.position == 'right' %} half-width-right {% else %} half-width {% endif %}">
+							{{ block.halfWidth }}
+						</div>
+					</div>
+				{% case 'threeQuarterWidth' %}
+					<div class="row mt-pad">
+						<div class="{% if block.position == 'center' %} three-quarter-width-center {% elseif block.position == 'right' %} three-quarter-width-right {% else %} three-quarter-width {% endif %}">
+							{{ block.threeQuarterWidth }}
+						</div>
+					</div>
+
+				{% case 'carouselFullWidth' %}
+					<div class="row">
+						<div class="full-width carousel">
+							{% for image in block.carouselFullWidth %}
+								<div class="carousel_item"><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></div>
+							{% endfor %}
+						</div>
+					</div>
+
+
+				{% case 'carouselHalfWidth' %}
+					<div class="row">
+						<div class="m-8-12 m-offset-2 end carousel">
+							{% for image in block.carouselHalfWidth %}
+								<div class="carousel_item"><img src="{{ image.getUrl() }}" alt="{{ image.title }}"></div>
+							{% endfor %}
+						</div>
+					</div>
+			{% endswitch %}
+    	{% endfor %}
+    </div>
+</div>
+
+<div class="container">
+	 <div class="projectNav">
+    	<div><span class="icon-arrow-left"></span></div>
+
+    	<div><span class="icon-arrow-right"></span></div>
+    </div>
+</div>
+{% endblock %}

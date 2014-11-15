@@ -59,6 +59,10 @@ body {
 	overflow-x: hidden;
 	color: $gray;
 	font-weight: 200;
+	position: relative;
+}
+a {
+	text-decoration: none;
 }
 .header {
 	@extend .row;
@@ -150,7 +154,7 @@ body {
 		    }
 		}
 
-		&:hover {
+		&.active {
 			.bars {
 				span {
 				     width: 0;
@@ -170,6 +174,60 @@ body {
 				  }
 			}
 		}
+	}
+}
+.nav {
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	background-color: rgba($white, 0.95);
+	position: absolute;
+	border-bottom: 1px solid lighten($gray, 36%);
+	z-index: 1000;
+	//top: rem-calc(150);
+
+	ul {
+		width: 100%;
+		padding-top: rem-calc(20);
+		padding-bottom: rem-calc(80);	
+	}
+
+	li {
+		display: block;
+		text-align: right;
+	}
+
+	a {
+		font-weight: 400;
+		text-decoration: none;
+		color: $gray;
+		padding: rem-calc(2) 0;
+		@include inline-block;
+		position: relative;
+
+		&:after {
+			content: '';
+			width: 0;
+			height: 1px;
+			position: absolute;
+			background-color: $primary;
+			right: 0;
+			bottom: 0;
+			@include transition ( all 1.0s ease-out );
+		}
+
+		&:hover {
+			color: $primary;
+
+			&:after {
+				width: 100%;
+				left: 0;
+			}
+		}
+	}
+
+	&.show {
+		height: auto;
 	}
 }
 .homeHero {
@@ -236,6 +294,7 @@ body {
 		font-weight: bold;
 		text-transform: uppercase;
 		letter-spacing: rem-calc(1.1);
+		margin-bottom: 0;
 
 		@media #{$large-up} {
 			font-size: rem-calc(16);
@@ -490,10 +549,12 @@ body {
 	padding-bottom: rem-calc(20);
 	font-size: rem-calc(13);
 	border-bottom: 1px solid $white;
+	overflow-x: auto;
 }
 .works_group_nav {
-	width: auto !important;
-	display: inline;
+	width: auto;
+	//display: inline;
+	float: left;
 
 	li {
 		display: inline;
@@ -527,6 +588,20 @@ body {
 				width: 100%;
 			}
 		}
+
+		&.active {
+			color: rgba($secondary, 0.5);
+			&:after {
+				position: absolute;
+				content: '';
+				width: 100%;
+				height: 2px;
+				background-color: rgba($secondary, 0.3);
+				bottom: rem-calc(-20);
+				right: 0;
+				@include transition ( all 0.5s ease );
+			}
+		}
 	}
 }
 .works_collection {
@@ -534,11 +609,12 @@ body {
 	float: left;
 	margin-top: rem-calc(100);
 
-	a {
+	>a {
 		color: lighten($gray, 20%);
 		text-decoration: none;
 		@include inline-block;
-
+		@include animation( fadeIn 1.5s ease-in );
+		float: left;
 
 		&:nth-child(4n) {
 			@media #{$large-up} {
@@ -578,8 +654,9 @@ body {
 		width: 100%;
 		float: left;
 		position: relative;
-		margin-bottom: rem-calc(80);
+		margin-bottom: rem-calc(20);
 		@include transition ( all 1.0s ease-in-out );
+		@include perspective( 400px );
 
 		@media #{$small-only} {
 			padding-left: rem-calc(40);
@@ -590,6 +667,7 @@ body {
 
 		@media #{$medium-up} {
 			padding-right: rem-calc(20);
+			margin-bottom: rem-calc(80);
 		}
 
 		@media #{$medium-only} {
@@ -616,6 +694,7 @@ body {
 		img {
 			margin-top: rem-calc(30);
 			max-width: 100%;
+			@include transition ( all 1.0s ease-in-out );
 
 			@media #{$medium-up} {
 				max-width: 80%;
@@ -623,11 +702,21 @@ body {
 		}
 
 		&:hover {
-			@include transform( scale(1.2) );
+			@include transform( scale(1.1));
+
+			img {
+				@include transform( scale(1.2) rotateX(3deg) translateY(2%));
+				@include transform-origin( center top );
+			}
 		}
 
 		&.small {
-			@media #{$medium-up} {
+			@media #{$medium-only} {
+				img {
+					max-width: 80%;
+				}
+			}
+			@media #{$large-up} {
 				img {
 					max-width: 60%;
 				}
@@ -670,6 +759,27 @@ body {
 			opacity: 1;
 			@include transform( translateY(0%) );
 		}
+	}
+
+	
+}
+.loadMoreLink {
+	&.inactive {
+		font-size: rem-calc(40);
+		opacity: 0.2;
+		text-align: center;
+		color: $gray;
+		margin: auto auto;
+		@include inline-block;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		width: 100%;
+		cursor: default;
+		@include user-select( none );
+	}
+
+	.row {
+		text-align: center;
 	}
 }
 /* Style for the work single pages complete with art direction */
@@ -731,6 +841,33 @@ p, div {
 			background-color: lighten($gray, 30%);
 		}
 	}
+
+	a {
+		color: $gray;
+		padding: rem-calc(2) 0;
+		@include inline-block;
+		position: relative;
+
+		&:after {
+			content: '';
+			width: 0;
+			height: 1px;
+			position: absolute;
+			background-color: $primary;
+			right: 0;
+			bottom: 0;
+			@include transition ( all 1.0s ease-out );
+		}
+
+		&:hover {
+			color: $primary;
+
+			&:after {
+				width: 100%;
+				left: 0;
+			}
+		}
+	}
 }
 
 div {
@@ -752,9 +889,6 @@ div {
 				float: right;
 				margin-right: 0;
 			}
-			padding-right: rem-calc(26);
-			background-color: $gray;
-			height: 300px;
 			margin-bottom: rem-calc(40);
 		}
 	}
@@ -764,6 +898,7 @@ div {
 		> div {
 			@media #{$medium-up} {
 				width: 49% !important;
+				padding: 0;
 			}
 		}
 	}
@@ -773,3 +908,27 @@ div {
 		margin-bottom: rem-calc(40);
 	}
 }
+
+.projectNav {
+	font-size: rem-calc(60);
+	width: 40%;
+	margin: auto auto;
+
+	> div {
+		width: 50%;
+		float: left;
+		text-align: center;
+		//background-color: $primary;
+		//color: $white;
+		cursor: pointer;
+		@include transition ( all 1.0s ease-in-out );
+
+		&:hover {
+			@include transform( scale(1.5) );
+			//background-color: darken($primary, 3%);
+			//color: $white;
+		}
+	}
+}
+@include keyframes( fadeIn ) 
+{from {opacity: 0;} to {opacity: 1;}}

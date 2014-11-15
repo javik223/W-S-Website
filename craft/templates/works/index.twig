@@ -1,0 +1,70 @@
+{% extends '_layout' %}
+{% block content %}
+    <div class="container works mt-pad">
+    <div class="row">
+        <div class="col">
+            <h1 class="beta centered">Ideas brought to life</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col works_group">
+            <div class="works_group_nav">
+                <ul>
+
+                    {% set categories = craft.categories('works') %}
+
+                    <li><a href="/works" title="All Works">All</a></li>
+                     {% for category in categories %}
+                        <li>
+                            <a href="{{ category.url }}" title="{{ category.title }} by Witts &amp; Stratts" {% if craft.request.getUrl() == category.url %} class="active" {% endif %} >{{ category }}
+                            </a>
+                        </li>
+                     {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="works_collection">
+            {% set pageTrigger = 'page' %}
+            {% paginate craft.entries.section('works').relatedTo(category).limit(10) as entries %}
+            
+                {% for item in entries %}
+                     <a href="{{ item.url }}" title="{{ item.title }}">
+                        <div class="item{% if item.coverimagesize == "big" %} big{% elseif item.coverimagesize == 'small' %} small{% endif %}">
+                            <h2> {{ item.title }} </h2>
+
+                            {% set categories = item.worksCategories %}
+
+                            <h3>
+                            {% for category in categories %}
+                                {{ category }}{% if loop.length != loop.last %}, &nbsp;{% endif %}
+                            {% endfor %}
+                            </h3>
+
+                            {% for image in item.coverImage %}
+                                <img src="{{ image.getUrl() }}" alt="{{ image.title }}" width="{{ image.getWidth() }}" Height="{{ image.getHeight() }}">
+                            {% endfor %}
+                        </div>
+                     </a>
+                {% endfor %}
+        </div>
+            
+                {% if paginate.nextUrl %}
+                    <div class="row">
+                        <a href="{{ paginate.nextUrl }}" class="loadMoreLink">
+                            <div class="loadMore">
+                                 +
+                            </div>
+                        </a>
+                    </div>
+                {% endif %}
+            
+            {% endpaginate %}
+            
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
