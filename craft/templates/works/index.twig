@@ -8,63 +8,72 @@
     </div>
 
     <div class="row">
-        <div class="col works_group">
-            <div class="works_group_nav">
-                <ul>
+        <div class="works_group_wrapper">
+            <div class="col works_group">
+                <div class="works_group_nav">
+                    <ul>
 
-                    {% set categories = craft.categories('works') %}
+                        {% set categories = craft.categories('works') %}
 
-                    <li><a href="/works" title="All Works">All</a></li>
-                     {% for category in categories %}
-                        <li>
-                            <a href="{{ category.url }}" title="{{ category.title }} by Witts &amp; Stratts" {% if craft.request.getUrl() == category.url %} class="active" {% endif %} >{{ category }}
-                            </a>
-                        </li>
-                     {% endfor %}
-                </ul>
+                        <li><a href="/works" title="All Works">All</a></li>
+                         {% for category in categories %}
+                            <li>
+                                <a href="{{ category.url }}" title="{{ category.title }} by Witts &amp; Stratts" {% if craft.request.getUrl() == category.url %} class="active" {% endif %} >{{ category }}
+                                </a>
+                            </li>
+                         {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="jsWorksCatNavLeft works_group_wrapper_left_arrow">
+                <span class="icon-arrow-left"></span>
+            </div>
+
+            <div class="jsWorksCatNavRight works_group_wrapper_right_arrow">
+                <span class="icon-arrow-right"></span>
             </div>
         </div>
 
+        <div class="works_container">
+            <div class="works_collection">
+                {% set pageTrigger = 'page' %}
+                {% paginate craft.entries.section('works').relatedTo(category).limit(12) as entries %}
+                
+                    {% for item in entries %}
+                         <a href="{{ item.url }}" title="{{ item.title }}" class="item{% if item.coverimagesize == "big" %} big{% elseif item.coverimagesize == 'small' %} small{% endif %}">
+                            <div class="item_wrapper">
+                                    <h2 class="item_title"> {{ item.title }} </h2>
 
-        <div class="works_collection">
-            {% set pageTrigger = 'page' %}
-            {% paginate craft.entries.section('works').relatedTo(category).limit(10) as entries %}
-            
-                {% for item in entries %}
-                     <a href="{{ item.url }}" title="{{ item.title }}">
-                        <div class="item{% if item.coverimagesize == "big" %} big{% elseif item.coverimagesize == 'small' %} small{% endif %}">
-                            <h2> {{ item.title }} </h2>
+                                {% set categories = item.worksCategories %}
 
-                            {% set categories = item.worksCategories %}
+                                <h4 class="item_categories">
+                                {% for category in categories %}
+                                    {{ category }}{% if loop.length != loop.last %},&nbsp;{% endif %}
+                                {% endfor %}
+                                </h4>
+                                
 
-                            <h3>
-                            {% for category in categories %}
-                                {{ category }}{% if loop.length != loop.last %}, &nbsp;{% endif %}
-                            {% endfor %}
-                            </h3>
-
-                            {% for image in item.coverImage %}
-                                <img src="{{ image.getUrl() }}" alt="{{ image.title }}" width="{{ image.getWidth() }}" Height="{{ image.getHeight() }}">
-                            {% endfor %}
-                        </div>
-                     </a>
-                {% endfor %}
-        </div>
-            
-                {% if paginate.nextUrl %}
-                    <div class="row">
-                        <a href="{{ paginate.nextUrl }}" class="loadMoreLink">
-                            <div class="loadMore">
-                                 +
+                                {% for image in item.coverImage %}
+                                    <img src="{{ image.getUrl() }}" alt="{{ image.title }}" width="{{ image.getWidth() }}" Height="{{ image.getHeight() }}">
+                                {% endfor %}
                             </div>
-                        </a>
-                    </div>
-                {% endif %}
-            
-            {% endpaginate %}
-            
+                         </a>
+                    {% endfor %}
+            </div>
+                
+                    {% if paginate.nextUrl %}
+                        <div class="row">
+                            <a href="{{ paginate.nextUrl }}" class="loadMoreLink">
+                                <div class="loadMore">
+                                     +
+                                </div>
+                            </a>
+                        </div>
+                    {% endif %}
+                
+                {% endpaginate %}
+            </div>  
         </div>
     </div>
-</div>
-</div>
 {% endblock %}

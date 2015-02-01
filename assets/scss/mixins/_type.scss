@@ -1,112 +1,110 @@
+$base-font-size: rem-calc(18);
+$base-line-height: rem-calc(22);
+$base-font-family: Lato, Helvetica, sans;
+$base-line: rem-calc(22);
+
+$h1: (
+		font-size: rem-calc(76),
+		font-weight: 200,
+		line: rem-calc(25),
+		lines: 4
+	);
+
+$h2: (
+		font-size: rem-calc(47),
+		font-weight: 200,
+		line: rem-calc(25),
+		lines: 2
+	);
+$h3: (
+		font-size: rem-calc(29),
+		font-weight: 200,
+		line: rem-calc(25),
+		lines: 2
+	);
+
+$h4: (
+		font-size: rem-calc(18),
+		font-weight: 200,
+		line: rem-calc(25),
+		lines: 1.2
+	);
+
+$h5: (
+		font-size: rem-calc(16),
+		font-weight: 200,
+		line: rem-calc(16),
+		lines: 1
+	);
+
+@mixin header($elem: $h1) {
+	@if $elem {
+		font-size: map-get($elem, font-size);
+		font-weight: map-get($elem, font-weight);
+		line-height: map-get($elem, line) * map-get($elem, lines);
+		@if $elem == $h1 or $elem == $h2 {
+			margin-top: 2 * map-get($elem, line);
+		} @else {
+			margin-top: 1 * map-get($elem, line);
+		}
+		margin-bottom: 1 * map-get($elem, line);
+	}
+}
+
 h1, .alpha {
-	font-size: rem-calc(36);
-	line-height: 1.2;
-	font-weight: 200;
-	margin-bottom: rem-calc(16);
+	@include header($h1);
 
 	&.heading {
-		margin-bottom: rem-calc(16);
-	}
-
-	@media #{$medium-up} {
-		font-size: rem-calc(48);
+		margin-bottom: map-get($h1, margin-bottom);
 	}
 }
 h2, .beta {
-	@extend h1;
-	font-size: rem-calc(30);
-	line-height: 1.4;
-
-
-	@media #{$medium-up} {
-		font-size: rem-calc(40);	
-	}
+	@include header($h2);
 }
 
 h3, .gamma {
-	@extend h1;
-	font-size: rem-calc(26);
-	line-height: 1.5;
-
-	@media #{$medium-up} {
-		font-size: rem-calc(32);
-	}
+	@include header($h3);
 }
 h4, .omega {
-	@extend h1;
-	font-size: rem-calc(20);
-	line-height: 1.6;
-	@media #{$medium-up} {
-		font-size: rem-calc(26);
-	}
+	@include header($h4);
 }
 h5, .sigma {
-	@extend h1;
-	font-size: rem-calc(16);
-	line-height: 1.6;
+	@include header($h5);
+}
 
-	@media #{$medium-up} {
-		font-size: rem-calc(18);
-	}
+body {
+	font-size: 16px;
+	font-family: $base-font-family;
+	font-weight: 200;
 }
-h6 {
-	@extend h1;
-	font-size: rem-calc(16);
-}
+
 p {
-	font-size: rem-calc(16);
-	margin-bottom: rem-calc(24);
-	display: block;
-
-	@media #{$medium-up} {
-		font-size: rem-calc(18);
-	}
+	font-size: $base-font-size;
+	margin-bottom: $base-line;
+	margin-top: $base-line;
 }
+
 .small, small {
 	font-size: 80%;
 }
 .large {
-	font-size: rem-calc(48);
-
-	@media #{$medium-up} {
-		font-size: rem-calc(56);
-	}
+	font-size: 120%;
 }
 .xlarge {
-	font-size: rem-calc(50);
-
-	@media #{$medium-up} {
-		font-size: rem-calc(62);
-	}
+	font-size: 140%;
 }
 .xxlarge {
-	font-size: rem-calc(56);
-
-	@media #{$medium-up} {
-		font-size: rem-calc(70);
-	}
+	font-size: 160%;
 }
 .xxxlarge {
-	font-size: rem-calc(60);
-
-	@media #{$medium-up} {
-		font-size: rem-calc(78);
-	}
+	font-size: 180%;
 }
 .xxxxlarge {
-	font-size: rem-calc(66);
-
-	@media #{$medium-up} {
-		font-size: rem-calc(86);
-	}
+	font-size: 200%;
 }
 
 .xxxxxlarge {
-	font-size: rem-calc(66);
-
-	@media #{$medium-up} {
-		font-size: rem-calc(100);
-	}
+	font-size: 210%;
 }
 
 strong {

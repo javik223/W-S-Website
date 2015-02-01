@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hasClass Testing</title>
+</head>
+<body>
+	<div class="name">My name is Victory James</div>
+	<script>
+	(function(){
+		$ = function(elem){
+			$elem = document.querySelectorAll(elem);
+
+			return ($elem.length > 1) ? document.querySelectorAll(elem) : document.querySelector(elem);
+		}
+		
+		Object.prototype.hasClass = function(eClass) {
+			var classList = this.className.split(" ");
+
+			//Check if class exits in array of class
+			if (classList.indexOf(eClass) !== -1) {
+				return true;
+			}
+			return false;
+		};
+
+		Object.prototype.addClass = function(eClass) {
+			var classList = this.className.split(" ");
+
+			//Add the class to the classlist if element does not have the class
+			if (!classList.indexOf(eClass) !== -1) {
+				// Add new class to class
+				classList.push(eClass);
+				this.className = classList.join(" ").trim();
+			}
+		}
+
+		Object.prototype.removeClass = function(eClass) {
+			var classList = this.className.split(" "),
+				eIndex = classList.indexOf(eClass);
+
+				if (eIndex !== -1) {
+					//Delete class from array of element class
+					delete classList[eIndex];
+					// Remove new class from class
+					this.className = classList.join(" ").trim();
+				}
+		}
+
+		Object.prototype.parent = function() {
+			return this.parentNode;
+		}
+
+		console.log($(".name").removeClass("vapor"));
+
+		console.log($(".name").parent().addClass("vapor"));
+	})();
+	</script>
+</body>
+</html>
