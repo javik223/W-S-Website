@@ -332,13 +332,13 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/works\/organic-ad.jpg": {
+	"\/assets\/img\/works\/Organic-ad.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 294447,
-		"inputAbbreviatedPath": "\/assets\/img\/works\/organic-ad.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/works\/organic-ad.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/works\/Organic-ad.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/works\/Organic-ad.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -503,6 +503,17 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/min\/imagesloaded.pkgd.min-min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/imagesloaded.pkgd.min-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/assets\/js\/min\/jquery.min-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/min\/jquery.min-min.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/jquery.min-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,

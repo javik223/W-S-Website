@@ -133,7 +133,7 @@ class AssetTransformsService extends BaseApplicationComponent
 
 			if (!$transformRecord)
 			{
-				throw new Exception(Craft::t('Can’t find the transform with ID “{id}”', array('id' => $transform->id)));
+				throw new Exception(Craft::t('Can’t find the transform with ID “{id}”.', array('id' => $transform->id)));
 			}
 		}
 		else
@@ -467,6 +467,10 @@ class AssetTransformsService extends BaseApplicationComponent
 		unset($values['detectedFormat']);
 		unset($values['transform']);
 
+		// Let DbCommand take care of the audit columns.
+		unset($values['dateCreated']);
+		unset($values['dateUpdated']);
+
 		if (!empty($index->id))
 		{
 			$id = $index->id;
@@ -664,6 +668,7 @@ class AssetTransformsService extends BaseApplicationComponent
 
 			$this->storeLocalSource($localCopy, $imageSourcePath);
 			$this->queueSourceForDeletingIfNecessary($imageSourcePath);
+			IOHelper::deleteFile($localCopy, true);
 		}
 
 		$file->setTransformSource($imageSourcePath);
@@ -727,8 +732,9 @@ class AssetTransformsService extends BaseApplicationComponent
 		$maxCachedImageSize = $this->getCachedCloudImageSize();
 
 		// Resize if constrained by maxCachedImageSizes setting
-		if ($maxCachedImageSize > 0)
+		if ($maxCachedImageSize > 0 && ImageHelper::isImageManipulatable($localCopy))
 		{
+
 			craft()->images->loadImage($localCopy)->scaleToFit($maxCachedImageSize, $maxCachedImageSize)->setQuality(100)->saveAs($destination);
 
 			if ($localCopy != $destination)
