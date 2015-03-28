@@ -993,7 +993,7 @@ a {
   padding: 0.125rem 0;
   display: inline-block;
   position: relative;
-  font-size: 1.5rem;
+  font-size: 2.625rem;
 }
 .nav a:after {
   content: '';
@@ -1021,6 +1021,11 @@ a {
   -ms-transform: translateY(0%);
   -o-transform: translateY(0%);
   transform: translateY(0%);
+}
+.nav .nav_contact {
+  text-align: right;
+  font-size: 80%;
+  padding-bottom: 3.75rem;
 }
 
 .homeHero {
@@ -1802,11 +1807,15 @@ p.full-width, p.half-width, p.half-width-center, p.half-width-right, p.three-qua
 }
 
 .work_synopsis {
-  text-align: center;
   margin-bottom: 3.75rem;
 }
+.work_synopsis .work_client {
+  font-size: 80%;
+  opacity: 0.7;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
 .work_synopsis .work_categories {
-  padding-top: 1.25rem;
   margin-top: 1.25rem;
   margin-bottom: 2.5rem;
   font-size: 0.6875rem;
@@ -1817,19 +1826,14 @@ p.full-width, p.half-width, p.half-width-center, p.half-width-right, p.three-qua
   letter-spacing: 0.0625rem;
   position: relative;
 }
-.work_synopsis .work_categories:before {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-  content: '';
-  width: 10%;
-  height: 0.0625rem;
-  background-color: #dddddd;
+@media only screen and (min-width: 40.063em) {
+  .work_synopsis .work_categories {
+    text-align: right;
+  }
+}
+.work_synopsis .work_desc {
+  font-size: 90%;
+  line-height: 1.5;
 }
 .work_synopsis a {
   color: #909090;
@@ -1934,4 +1938,7 @@ div .one-column, section .one-column {
   to {
     opacity: 1;
   }
+}
+.nmt {
+  margin-top: 0;
 }

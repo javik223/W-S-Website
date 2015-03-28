@@ -332,13 +332,13 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/img\/works\/Organic-ad.jpg": {
+	"\/assets\/img\/works\/organic-ad.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
 		"initialSize": 294447,
-		"inputAbbreviatedPath": "\/assets\/img\/works\/Organic-ad.jpg",
-		"outputAbbreviatedPath": "\/assets\/img\/works\/Organic-ad.jpg",
+		"inputAbbreviatedPath": "\/assets\/img\/works\/organic-ad.jpg",
+		"outputAbbreviatedPath": "\/assets\/img\/works\/organic-ad.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
@@ -1161,6 +1161,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/cover-images\/Models-Workshop-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 180723,
+		"inputAbbreviatedPath": "\/images\/cover-images\/Models-Workshop-2.jpg",
+		"outputAbbreviatedPath": "\/images\/cover-images\/Models-Workshop-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/cover-images\/next.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1260,6 +1271,17 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/cover-images\/TheModelsWorkshopCover.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 321307,
+		"inputAbbreviatedPath": "\/images\/cover-images\/TheModelsWorkshopCover.jpg",
+		"outputAbbreviatedPath": "\/images\/cover-images\/TheModelsWorkshopCover.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/cover-images\/ur-magazine-cover.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -1311,6 +1333,28 @@
 		"initialSize": 24663,
 		"inputAbbreviatedPath": "\/images\/gbc-logo.png",
 		"outputAbbreviatedPath": "\/images\/gbc-logo.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/Models-Workshop-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 180723,
+		"inputAbbreviatedPath": "\/images\/Models-Workshop-2.jpg",
+		"outputAbbreviatedPath": "\/images\/Models-Workshop-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/ModelsWorkshop3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 187025,
+		"inputAbbreviatedPath": "\/images\/ModelsWorkshop3.jpg",
+		"outputAbbreviatedPath": "\/images\/ModelsWorkshop3.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

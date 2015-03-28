@@ -212,7 +212,7 @@ a {
 		padding: rem-calc(2) 0;
 		@include inline-block;
 		position: relative;
-		font-size: rem-calc(24);
+		font-size: rem-calc(42);
 
 		&:after {
 			content: '';
@@ -238,6 +238,12 @@ a {
 	&.show {
 		height: auto;
 		@include transform( translateY(0%) );
+	}
+
+	.nav_contact {
+		text-align: right;
+		font-size: 80%;
+		padding-bottom: rem-calc(60);
 	}
 }
 .homeHero {
@@ -1022,12 +1028,20 @@ p, div {
 }
 
 .work_synopsis {
-	text-align: center;
+	//text-align: center;
 	margin-bottom: rem-calc(60);
 
+	.work_client {
+		//text-transform: uppercase;
+		font-size: 80%;
+		opacity: 0.7;
+		margin-bottom: rem-calc(20);
+		position: relative;
+		//text-align: right;
+	}
 
 	.work_categories {
-		padding-top: rem-calc(20);
+		//padding-top: rem-calc(20);
 		margin-top: rem-calc(20);
 		margin-bottom: rem-calc(40);
 		font-size: rem-calc(11);
@@ -1038,16 +1052,14 @@ p, div {
 		letter-spacing: rem-calc(1);
 		position: relative;
 
-		&:before {
-			position: absolute;
-			top: rem-calc(0);
-			left: 50%;
-			@include transform( translateX(-50%) );
-			content: '';
-			width: 10%;
-			height: rem-calc(1);
-			background-color: lighten($gray, 30%);
+		@media #{$medium-up} {
+			text-align: right;
 		}
+	}
+
+	.work_desc {
+		font-size: 90%;
+		line-height: 1.5;
 	}
 
 	a {
@@ -1140,3 +1152,7 @@ div, section {
 }
 @include keyframes( fadeIn ) 
 {from {opacity: 0;} to {opacity: 1;}}
+
+.nmt {
+	margin-top: 0;
+}
