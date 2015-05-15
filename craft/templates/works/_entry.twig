@@ -4,23 +4,41 @@
     <div class="container mt-pad">
         <div class="row work_synopsis">
 
-			<div class="col s-12-12 work_client">Client: <strong>The Models Workshop</strong></div>
+            <div class="row">
+            	<div class="col m-8-12 end">
+	            	<h1 class="beta nmt work_heading">{{ entry.title }}</h1>
+	            </div>
 
-            <div class="col m-8-12">
-            	<h1 class="beta nmt">{{ entry.title }}</h1>
-            </div>
-
-            <div class="col m-4-12">
-            	 <div class="work_categories">
-	               {% set worksCategories = entry.worksCategories %}
-					
-		            {% for workCategory in worksCategories %}
-		            	<a href="{{ workCategory.url }}" title="{{ workCategory }}">{{ workCategory }}</a>{% if loop.length != loop.last %}, {% endif %}
-		            {% endfor %}
+	            <div class="col m-10-12 end">
+	            	<h3 class="work_subhead">Hello Monday and YouTube got together, and we are happy to announce the birth of our love child, YouTube Kids! A safe place for kids to play.</h3>
 	            </div>
             </div>
 
-            <div class="col m-6-12 end work_desc">{{ entry.synopsis|striptags }}</div>
+            <div class="row">
+
+	            <div class="col m-5-12 m-offset-3 work_desc">
+	            	<p>{{ entry.synopsis|striptags }}</p>
+
+	            	<p>YouTube has been a portal to the best (and best of the worst) content on the Internet for the last 10 years. We’ve laughed, we’ve cried, we’ve cringed, and enjoyed hours of entertainment. But when it comes to kids, YouTube is often not the best place for unsupervised exploration. We all know how quickly a small child watching baby animals play can accidentally click on a ‘related’ video that has some extreme, adult-only content.</p>
+	            </div>
+            	<div class="col m-3-12">
+            		<div class="client"><p><strong>Client / </strong>The Anchor</p></div>
+
+            		<div class="work_categories">
+		               {% set worksCategories = entry.worksCategories %}
+						
+			            {% for workCategory in worksCategories %}
+			            	<a href="{{ workCategory.url }}" title="{{ workCategory }}">{{ workCategory }}</a>{% if loop.length != loop.last %} / {% endif %}
+			            {% endfor %}
+		            </div>
+            	</div>
+            </div>
+
+            <div class="col m-4-12">
+   
+            </div>
+
+            <div class="col m-6-12 end "></div>
         </div>
     </div>
 

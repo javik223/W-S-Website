@@ -227,7 +227,6 @@ body {
 p {
   font-size: 1.125rem;
   margin-bottom: 1.375rem;
-  margin-top: 1.375rem;
 }
 
 .small, small {
@@ -1490,11 +1489,39 @@ a {
   padding-bottom: 2.5rem;
 }
 
+.worksSingle {
+  background-color: #eaeaea;
+}
 .worksSingle h3 {
   font-weight: 200 !important;
 }
 .worksSingle p {
   font-size: 1rem;
+}
+.worksSingle .client {
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  display: block;
+  border-bottom: 1px solid white;
+}
+.worksSingle .client p {
+  font-size: 80%;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+.worksSingle .client p strong {
+  color: white;
+  font-weight: 800;
+}
+.worksSingle .work_heading {
+  color: white;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.worksSingle .work_subhead {
+  line-height: 1.5;
+  letter-spacing: -0.5px;
 }
 
 .works_group_wrapper {
@@ -1812,28 +1839,21 @@ p.full-width, p.half-width, p.half-width-center, p.half-width-right, p.three-qua
 .work_synopsis .work_client {
   font-size: 80%;
   opacity: 0.7;
-  margin-bottom: 1.25rem;
   position: relative;
 }
 .work_synopsis .work_categories {
   margin-top: 1.25rem;
   margin-bottom: 2.5rem;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 400;
   color: #c3c3c3;
-  text-transform: uppercase;
-  word-spacing: 0.1875rem;
-  letter-spacing: 0.0625rem;
+  word-spacing: 0.125rem;
+  letter-spacing: 0;
   position: relative;
 }
-@media only screen and (min-width: 40.063em) {
-  .work_synopsis .work_categories {
-    text-align: right;
-  }
-}
-.work_synopsis .work_desc {
+.work_synopsis .work_desc p {
   font-size: 90%;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 .work_synopsis a {
   color: #909090;
@@ -1861,9 +1881,6 @@ p.full-width, p.half-width, p.half-width-center, p.half-width-right, p.three-qua
   left: 0;
 }
 
-div.full-width, section.full-width {
-  margin-bottom: 2.5rem;
-}
 div.three-columns > div, div div.two-columns > div, section div.two-columns > div, section.three-columns > div, div section.two-columns > div, section section.two-columns > div {
   margin-bottom: 2.5rem;
 }
@@ -1887,6 +1904,7 @@ div.three-columns > div:last-child, div div.two-columns > div:last-child, sectio
 div .one-column, section .one-column {
   width: 100%;
   float: left;
+  margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
 

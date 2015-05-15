@@ -688,11 +688,41 @@ a {
 	@extend .about;
 }
 .worksSingle {
+	background-color: darken($gray-light, 5%);
+	
 	h3 {
 		font-weight: 200 !important;
 	}
 	p {
 		font-size: rem-calc(16);
+	}
+	.client {
+		text-transform: uppercase;
+		margin-bottom: $padding;
+		padding-bottom: $padding;
+		display: block;
+		border-bottom: 1px solid white;
+		
+		p {
+			font-size: 80%;
+			line-height: 1.5;
+			margin-bottom: 0;
+
+			strong {
+				color: white;
+				font-weight:  800;
+			}
+		}
+	}
+
+	.work_heading {
+		color: white;
+		font-weight: 800;
+		letter-spacing: -1px;
+	}
+	.work_subhead {
+		line-height: 1.5;
+		letter-spacing: -0.5px;
 	}
 }
 .works_group_wrapper {
@@ -1035,7 +1065,7 @@ p, div {
 		//text-transform: uppercase;
 		font-size: 80%;
 		opacity: 0.7;
-		margin-bottom: rem-calc(20);
+		//margin-bottom: rem-calc(20);
 		position: relative;
 		//text-align: right;
 	}
@@ -1044,22 +1074,23 @@ p, div {
 		//padding-top: rem-calc(20);
 		margin-top: rem-calc(20);
 		margin-bottom: rem-calc(40);
-		font-size: rem-calc(11);
+		font-size: rem-calc(12);
 		font-weight: 400;
 		color: lighten($gray, 20%);
-		text-transform: uppercase;
-		word-spacing: rem-calc(3);
-		letter-spacing: rem-calc(1);
+		//text-transform: uppercase;
+		word-spacing: rem-calc(2);
+		letter-spacing: 0;
 		position: relative;
-
-		@media #{$medium-up} {
-			text-align: right;
-		}
 	}
 
 	.work_desc {
-		font-size: 90%;
-		line-height: 1.5;
+		//padding-right: $padding * 2;
+
+		p {
+			font-size: 90%;
+			line-height: 1.7;
+			//padding-right: $padding;
+		}
 	}
 
 	a {
@@ -1095,7 +1126,7 @@ div, section {
 		@extend .container;
 		//background-color: $gray;
 		//min-height: 600px;
-		margin-bottom: rem-calc(40);
+		//margin-bottom: rem-calc(40);
 	}
 	&.three-columns {
 		> div {
@@ -1125,6 +1156,7 @@ div, section {
 	.one-column {
 		width: 100%;
 		float: left;
+		margin-top: rem-calc(40);
 		margin-bottom: rem-calc(40);
 	}
 }

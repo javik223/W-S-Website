@@ -788,7 +788,9 @@ $(function() {
 
 
 
-    var slider = new FeatureSlider();
-    slider.loadBGImages();
-    slider.animate();
+    if (document.querySelector(".jsFeaturedHeader")) {
+        var slider = new FeatureSlider();
+        slider.loadBGImages();
+        slider.animate();
+    }
 });
